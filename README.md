@@ -1,6 +1,6 @@
 # layui-dropdown-tree
 
-## 基于layui的下拉多选树组件，具体用法见index.html
+## 基于layui的下拉多选树组件，具体用法见[demo](https://waiaan.github.io/layui-dropdown-tree/)
 
 ![avatar](./1.png)
 ![avatar](./2.png)
