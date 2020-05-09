@@ -2,6 +2,9 @@
 
 ## 基于layui的下拉多选树组件，具体用法见index.html
 
+![avatar](./1.png)
+![avatar](./2.png)
+
 ## 参数说明
 ```js
 dropdownTree({
