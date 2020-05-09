@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css/dropdown-tree.css">
+  <script src="./layui/layui.all.js"></script>
+</head>
+
+<body>
+  <div class="layui-layout layui-layout-admin">
+
+    <div class="layui-body">
+      <div class="layui-row">
+        <form class="layui-form" action="">
+
+          <div class="layui-col-md3">
+            <div class="layui-form-item">
+              <label class="layui-form-label">地区</label>
+              <div class="layui-input-block region" id="region1">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="layui-col-md3">
+            <div class="layui-form-item">
+              <label class="layui-form-label">地区</label>
+              <div class="layui-input-block region" id="region2">
+
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    var treeData = [
+      {
+        "id": 1,
+        "label": "安徽省",
+        "children": [
+          {
+            "id": 2,
+            "label": "马鞍山市",
+            "disabled": true,
+            "children": [
+              {
+                "id": 3,
+                "label": "和县"
+              },
+              {
+                "id": 4,
+                "label": "花山区",
+                "checked": true
+              }
+            ]
+          },
+          {
+            "id": 22,
+            "label": "淮北市",
+            "children": [
+              {
+                "id": 23,
+                "label": "濉溪县"
+              },
+              {
+                "id": 24,
+                "label": "相山区",
+                "checked": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "label": "河南省",
+        "children": [
+          {
+            "id": 6,
+            "label": "郑州市"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "label": "江苏省",
+        "children": [
+          {
+            "id": 11,
+            "label": "苏州市"
+          },
+          {
+            "id": 12,
+            "label": "南京市",
+            "children": [
+              {
+                "id": 13,
+                "label": "姑苏区"
+              },
+              {
+                "id": 14,
+                "label": "相城区"
+              }
+            ]
+          }
+        ]
+      }
+    ];
+    layui.config({
+      base: './js/modules/'
+    }).extend({
+      dropdownTree: 'dropdown-tree'
+    }).use(['form', 'dropdownTree'], function (form, dropdownTree) {
+      var $ = layui.jquery
+
+      var dt = dropdownTree({
+        el: '#region1',
+        tree: {
+          data: treeData
+        }
+      })
+
+      dropdownTree({
+        // 需要渲染的根元素
+        el: '#region2',
+        // 是否只选择叶子节点
+        onlyLeaf: false,
+        // 数据中用来显示在标签中的字段
+        nodeProps: {
+          label: 'label'
+        },
+        // 参数同layui的tree组件
+        tree: {
+          data: treeData
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
